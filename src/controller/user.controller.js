@@ -1,5 +1,5 @@
 const express = require('express');
-const { createUser, getAllUsers, getUserById, updateUserById } = require('../service/user.service');
+const { createUser, getAllUsers, getUserById, updateUserById, deleteUserById} = require('../service/user.service');
 
 const route = express.Router()
 
@@ -49,7 +49,10 @@ route.put('/:id', async (req, res) => {
 route.delete('/:id', async (req, res) =>{
     try{
     const {id} = req.params;
-    const result = await delete
+    const result = await deleteUserById(id);
+    res.send(result)
+    }catch(err){
+        res.send(err.message)
     }
 
 })
