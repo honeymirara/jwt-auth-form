@@ -1,10 +1,13 @@
 import style from './style.module.scss'
+import { Link } from 'react-router-dom'
+
+
 
 export default function Header() {
-  return (
-    <div className={style.header}>
-        <p>Sign in</p>
-        <p>Sign up</p>
-    </div>
-  )
+    return (
+        <div className={style.header}>
+            <p><Link to={'/'}> Sign in</Link></p>
+            <p> <Link to={'/reg'}>Sign up</Link></p>
+        </div>
+    )
 }

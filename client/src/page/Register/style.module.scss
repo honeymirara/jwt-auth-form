@@ -1,0 +1,31 @@
+.wrapper {
+
+
+    h1 {
+        color: #12141A;
+        font: 500 23px Inter;
+
+    }
+
+    p {
+        color: #606778;
+        font: 500 14px Inter;
+        line-height: 20px;
+
+    }
+
+    .inputForm {
+        margin-top: 40px;
+        display: flex;
+       
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #CAD0DB;
+            padding: 12px;
+        }
+    }
+}
