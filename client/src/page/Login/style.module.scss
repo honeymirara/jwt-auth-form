@@ -1,0 +1,14 @@
+.inputForm {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+
+
+    input {
+        width: 100%;
+        border: 1px solid rgb(192, 189, 189);
+        padding: 12px;
+    }
+}
