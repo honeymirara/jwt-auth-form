@@ -2,11 +2,21 @@ import Header from '../../components/Header/Header'
 import style from './style.module.scss'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
+import useAuth from "../../hook/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate();
+
+    const {logIn} = useAuth();
     const [data, setData] = useState({ email: '', password: '' })
 
     async function sendData() {
+        const response = await axios.post("http://localhost:3001/api/auth", data, {withCredentials:true});
+        console.log(response.data);
+        logIn();
+        navigate("/home");
         console.log(data)
     }
 

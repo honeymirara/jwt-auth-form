@@ -22,4 +22,4 @@ api.post('/auth', async (req, res) => {
     }
 })
 
-module.exports = api;
+module.exports = api
