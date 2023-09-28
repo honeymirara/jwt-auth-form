@@ -1,4 +1,5 @@
 const express = require('express');
+const createToken = require('../helper/jwt')
 const { registrationUser, authorizationUser } = require('../service/api.service')
 const api = express.Router()
 
@@ -16,6 +17,7 @@ api.post('/auth', async (req, res) => {
     try {
         const { email, password } = req.body;
         const data = await authorizationUser(email, password)
+        const token = createToken(data)
         res.send(data);
     } catch (err) {
         res.send(err.message);
