@@ -18,6 +18,12 @@ api.post('/auth', async (req, res) => {
         const { email, password } = req.body;
         const data = await authorizationUser(email, password)
         const token = createToken(data)
+        res.cookie('access_token', token.token,{
+            httpOnly:false,
+            secure:true
+        })
+        
+
         res.send(data);
     } catch (err) {
         res.send(err.message);
