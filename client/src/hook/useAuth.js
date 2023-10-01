@@ -1,17 +1,21 @@
 import cookie from "js-cookie"
-import {useState} from "react"
+import { useState, useEffect } from "react"
 
-export default function useAuth(){
+
+export default function useAuth() {
     const [token, setToken] = useState(null);
+    useEffect(() => {
+        logIn()
+    }, [token])
 
-    function logIn(){
+    function logIn() {
         const cookieToken = cookie.get("access_token");
 
         setToken(cookieToken);
     }
-    function logOut(){
+    function logOut() {
         cookie.remove("access_token");
         setToken(null);
     }
-    return {token, logIn, logOut};
+    return { token, logIn, logOut };
 }

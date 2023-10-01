@@ -1,19 +1,19 @@
-import { Route, Routes } from 'react-router-dom'
-import Login from './page/Login/Login'
-import Register from './page/Register/Register'
-import Home from './page/Home/Home'
+
+import RoutesProvider from './RoutesProvider/RoutesProvider';
+import MyContext from './Context/Context';
+import useAuth from '../src/hook/useAuth'
 
 function App() {
 
-
+  const auth = useAuth
+  const routes = RoutesProvider(auth.token)
   return (
+    <>
+      <MyContext.Provider value={auth}>
+        {routes}
+      </MyContext.Provider>
+    </>
 
-    <Routes>
-      <Route path='/' element={<Login />} />
-      <Route path='/reg' element={<Register />} />
-      <Route path='/home' element={<Home />} />
-
-    </Routes>
 
   )
 }
